@@ -47,8 +47,13 @@ export default {
             password: this.password
           });
           console.log(response.data);
+          alert(
+            `Congratulations! You have registered with email: ${this.email}`
+          );
           this.email = "";
           this.password = "";
+          this.error = "";
+
           return;
         } catch (error) {
           this.error = error.response.data.error;
@@ -59,7 +64,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .error {
   color: red;
 }

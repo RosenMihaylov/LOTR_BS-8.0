@@ -8,7 +8,7 @@ module.exports = {
       return;
     } catch (err) {
       res.status(400).send({
-        error: `This email account is aready in use=`
+        error: `This email account is aready in use`
       });
       console.log(err);
     }
