@@ -1,13 +1,6 @@
 <template>
   <div id="register">
     <h1>This is a register page</h1>
-    <input
-      type="text"
-      name="userName"
-      placeholder="Username"
-      v-model="userName"
-      required
-    />
     <br />
     <input
       type="email"
@@ -25,14 +18,6 @@
       required
     />
     <br />
-    <input
-      type="password"
-      name="passwrodRetpeat"
-      placeholder="Confirm your Password"
-      v-model="passwordRepeat"
-      required
-    />
-    <br />
     <button @click="register">Register</button>
   </div>
 </template>
@@ -43,39 +28,25 @@ export default {
   name: "Register",
   data() {
     return {
-      userName: "",
       email: "",
-      password: "",
-      passwordRepeat: ""
+      password: ""
     };
   },
   methods: {
     async register() {
-      if (
-        !this.userName ||
-        !this.email ||
-        !this.passwordRepeat ||
-        !this.passwordRepeat
-      ) {
+      if (!this.email || !this.password) {
         return alert(
           "Please fill all the fields correctly if you want to register"
         );
-      } else if (this.password === this.passwordRepeat) {
+      } else {
         const response = await AuthenticationService.register({
-          userName: this.userName,
           email: this.email,
           password: this.password
         });
         console.log(response.data);
-        this.userName = "";
         this.email = "";
         this.password = "";
-        this.passwordRepeat = "";
         return;
-      } else {
-        alert(
-          "Please repeat your password correctly in the confirmation field"
-        );
       }
     }
   }

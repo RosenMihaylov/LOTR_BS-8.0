@@ -4,6 +4,5 @@ module.exports = (sequelize, DataTypes) =>
       type: DataTypes.STRING,
       unique: true
     },
-    password: DataTypes.STRING,
-    clearance: DataTypes.STRING
+    password: DataTypes.STRING
   });
