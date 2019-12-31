@@ -20,15 +20,17 @@ module.exports = {
           break;
         case "password":
           res.status(400).send({
-            error:
-              "You must provide a password witch is 8-32 simbols long and includes only: lower or upper case letters, or numbers."
+            error: `You must provide a password witch is: 
+              <br> 
+               8-32 simbols long 
+               <br> 
+               includes only  lower or upper case letters or numbers.`
           });
           break;
         default:
           res.status(400).send({
             error: `Invalid register information`
           });
-          
       }
     } else {
       next();

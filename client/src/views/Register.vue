@@ -18,6 +18,7 @@
       required
     />
     <br />
+    <div v-html="error" class="error" />
     <button @click="register">Register</button>
   </div>
 </template>
@@ -29,7 +30,8 @@ export default {
   data() {
     return {
       email: "",
-      password: ""
+      password: "",
+      error: ""
     };
   },
   methods: {
@@ -39,18 +41,26 @@ export default {
           "Please fill all the fields correctly if you want to register"
         );
       } else {
-        const response = await AuthenticationService.register({
-          email: this.email,
-          password: this.password
-        });
-        console.log(response.data);
-        this.email = "";
-        this.password = "";
-        return;
+        try {
+          const response = await AuthenticationService.register({
+            email: this.email,
+            password: this.password
+          });
+          console.log(response.data);
+          this.email = "";
+          this.password = "";
+          return;
+        } catch (error) {
+          this.error = error.response.data.error;
+        }
       }
     }
   }
 };
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+.error {
+  color: red;
+}
+</style>
