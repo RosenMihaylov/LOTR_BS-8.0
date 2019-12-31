@@ -5,7 +5,7 @@
         <v-row align="center" justify="center">
           <v-col cols="12" sm="8" md="4">
             <v-card class="elevation-12">
-              <v-toolbar color="primary" dark flat>
+              <v-toolbar color="cyan" flat>
                 <v-toolbar-title>Register form</v-toolbar-title>
                 <v-spacer />
               </v-toolbar>
@@ -16,46 +16,30 @@
                     name="email"
                     prepend-icon="person"
                     type="email"
+                    v-model="email"
+                    required
                   />
-
                   <v-text-field
                     id="password"
                     label="Password"
                     name="password"
                     prepend-icon="lock"
                     type="password"
+                    v-model="password"
+                    required
                   />
                 </v-form>
               </v-card-text>
               <v-card-actions>
+                <div v-html="error" class="error" />
                 <v-spacer />
-                <v-btn color="primary">Login</v-btn>
+                <v-btn color="cyan" @click="register">Register</v-btn>
               </v-card-actions>
             </v-card>
           </v-col>
         </v-row>
       </v-container>
     </v-content>
-    <h1>This is a register page</h1>
-    <br />
-    <input
-      type="email"
-      name="email"
-      placeholder="email"
-      v-model="email"
-      required
-    />
-    <br />
-    <input
-      type="password"
-      name="password"
-      placeholder="password"
-      v-model="password"
-      required
-    />
-    <br />
-    <div v-html="error" class="error" />
-    <button @click="register">Register</button>
   </div>
 </template>
 
@@ -103,7 +87,16 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
+$view-height: calc(100% - 80px);
+
+#register {
+  height: 100%;
+  .v-container,
+  .v-content {
+    height: 100%;
+  }
+}
 .error {
   background: #fff;
   color: #fff;
