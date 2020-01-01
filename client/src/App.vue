@@ -1,7 +1,6 @@
 <template>
   <div id="app">
     <v-app>
-     
       <Header></Header>
       <router-view />
     </v-app>
@@ -24,7 +23,6 @@ export default {
   color: #2c3e50;
   height: calc(100vh - 100px);
   #nav {
-    margin-top: 150px;
     line-height: 100px;
     background: #c7762242;
     a {

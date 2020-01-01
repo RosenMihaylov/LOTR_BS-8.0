@@ -65,8 +65,9 @@
       dark
     >
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
-      <v-toolbar-title style="width: 300px" class="ml-0 pl-4">
-        <span class="hidden-sm-and-down">Lotr TCG</span>
+      <v-toolbar-title style="width: 350px" class="ml-0 pl-4">
+        <v-icon>mdi-cards-playing-outline</v-icon> <v-spacer></v-spacer>
+        <span class="hidden-sm-and-down">LOTR TCG BS</span>
       </v-toolbar-title>
       <v-spacer />
       <v-btn icon>
@@ -142,34 +143,74 @@
               />
             </v-col>
             <v-col cols="6">
-              <v-text-field placeholder="Active skill during Fellowship phase" label="Active skill during Fellowship phase" text-lowercase/>
+              <v-text-field
+                placeholder="Active skill during Fellowship phase"
+                label="Active skill during Fellowship phase"
+                text-lowercase
+              />
             </v-col>
             <v-col cols="6">
-              <v-text-field placeholder="Passive skill during Fellowship phase" label="Passive skill during Fellowship phase"  text-lowercase/>
-            </v-col>
-             <v-col cols="6">
-              <v-text-field placeholder="Active skill during Shadow phase" label="Active skill during Shadow phase" text-lowercase/>
-            </v-col>
-            <v-col cols="6">
-              <v-text-field placeholder="Passive skill during Shadow phase" label="Passive skill during Shadow phase"  text-lowercase/>
-            </v-col>
-             <v-col cols="6">
-              <v-text-field placeholder="Active skill during Maneuver phase" label="Active skill during Maneuver phase" text-lowercase/>
+              <v-text-field
+                placeholder="Passive skill during Fellowship phase"
+                label="Passive skill during Fellowship phase"
+                text-lowercase
+              />
             </v-col>
             <v-col cols="6">
-              <v-text-field placeholder="Passive skill during Maneuver phase" label="Passive skill during Maneuver phase"  text-lowercase/>
-            </v-col>
-             <v-col cols="6">
-              <v-text-field placeholder="Active skill during Archery phase" label="Active skill during Archery phase" text-lowercase/>
-            </v-col>
-            <v-col cols="6">
-              <v-text-field placeholder="Passive skill during Archery phase" label="Passive skill during Archery phase"  text-lowercase/>
-            </v-col>
-             <v-col cols="6">
-              <v-text-field placeholder="Active skill during Battle phase" label="Active skill during Battle phase" text-lowercase/>
+              <v-text-field
+                placeholder="Active skill during Shadow phase"
+                label="Active skill during Shadow phase"
+                text-lowercase
+              />
             </v-col>
             <v-col cols="6">
-              <v-text-field placeholder="Passive skill during Battle phase" label="Passive skill during Battle phase"  text-lowercase/>
+              <v-text-field
+                placeholder="Passive skill during Shadow phase"
+                label="Passive skill during Shadow phase"
+                text-lowercase
+              />
+            </v-col>
+            <v-col cols="6">
+              <v-text-field
+                placeholder="Active skill during Maneuver phase"
+                label="Active skill during Maneuver phase"
+                text-lowercase
+              />
+            </v-col>
+            <v-col cols="6">
+              <v-text-field
+                placeholder="Passive skill during Maneuver phase"
+                label="Passive skill during Maneuver phase"
+                text-lowercase
+              />
+            </v-col>
+            <v-col cols="6">
+              <v-text-field
+                placeholder="Active skill during Archery phase"
+                label="Active skill during Archery phase"
+                text-lowercase
+              />
+            </v-col>
+            <v-col cols="6">
+              <v-text-field
+                placeholder="Passive skill during Archery phase"
+                label="Passive skill during Archery phase"
+                text-lowercase
+              />
+            </v-col>
+            <v-col cols="6">
+              <v-text-field
+                placeholder="Active skill during Battle phase"
+                label="Active skill during Battle phase"
+                text-lowercase
+              />
+            </v-col>
+            <v-col cols="6">
+              <v-text-field
+                placeholder="Passive skill during Battle phase"
+                label="Passive skill during Battle phase"
+                text-lowercase
+              />
             </v-col>
             <v-col cols="12">
               <v-file-input label="Card image" accept="image/*" ></v-file-input>
@@ -195,9 +236,10 @@ export default {
     dialog: false,
     drawer: null,
     items: [
-      { icon: "mdi-contacts", text: "Home", link: "/" },
+      { icon: "mdi-home", text: "Home", link: "/" },
       { icon: "mdi-login", text: "Login", link: "/login" },
-      { icon: "mdi-account-plus-outline", text: "Register", link: "/Register" }
+      { icon: "mdi-account-plus-outline", text: "Register", link: "/Register" },
+      { icon: "mdi-cards-playing-outline", text: "Card list", link: "" }
     ]
   })
 };
