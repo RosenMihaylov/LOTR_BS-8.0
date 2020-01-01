@@ -1,23 +1,45 @@
 <template>
-  <div id="register">
-    <h1>This is a login page</h1>
-    <input
-      type="text"
-      name="userName"
-      placeholder="Username"
-      v-model="userName"
-      required
-    />
-    <br />
-    <input
-      type="password"
-      name="password"
-      placeholder="password"
-      v-model="password"
-      required
-    />
-    <br />
-    <button @click="login">lLogin</button>
+  <div id="login" class="component">
+    <v-content>
+      <v-container class="fill-height" fluid>
+        <v-row align="center" justify="center">
+          <v-col cols="12" sm="8" md="4">
+            <v-card class="elevation-12">
+              <v-toolbar color="cyan" flat>
+                <v-toolbar-title>Login form</v-toolbar-title>
+                <v-spacer />
+              </v-toolbar>
+              <v-card-text>
+                <v-form>
+                  <v-text-field
+                    label="email"
+                    name="email"
+                    prepend-icon="person"
+                    type="email"
+                    v-model="email"
+                    required
+                  />
+                  <v-text-field
+                    id="password"
+                    label="Password"
+                    name="password"
+                    prepend-icon="lock"
+                    type="password"
+                    v-model="password"
+                    required
+                  />
+                </v-form>
+              </v-card-text>
+              <v-card-actions>
+                <div v-html="error" class="error" />
+                <v-spacer />
+                <v-btn color="cyan" @click="login">Login</v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-col>
+        </v-row>
+      </v-container>
+    </v-content>
   </div>
 </template>
 
@@ -27,10 +49,9 @@ export default {
   name: "Register",
   data() {
     return {
-      userName: "",
       email: "",
       password: "",
-      passwordRepeat: ""
+      error: ""
     };
   },
   methods: {
@@ -39,4 +60,8 @@ export default {
 };
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+#login {
+  height: calc(100% - 100px);
+}
+</style>

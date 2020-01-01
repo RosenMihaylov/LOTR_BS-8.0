@@ -1,5 +1,5 @@
 <template>
-  <div id="register">
+  <div id="register" class="component">
     <v-content>
       <v-container class="fill-height" fluid>
         <v-row align="center" justify="center">

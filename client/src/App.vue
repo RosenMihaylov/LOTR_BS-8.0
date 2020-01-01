@@ -1,15 +1,19 @@
 <template>
   <div id="app">
     <v-app>
-      <div id="nav">
-        <router-link to="/">Home</router-link> |
-        <router-link to="/login">Login</router-link> |
-        <router-link to="/register">Register</router-link>
-      </div>
+     
+      <Header></Header>
       <router-view />
     </v-app>
   </div>
 </template>
+
+<script>
+import Header from "./views/Header";
+export default {
+  components: { Header }
+};
+</script>
 
 <style lang="scss">
 #app {
@@ -20,6 +24,7 @@
   color: #2c3e50;
   height: calc(100vh - 100px);
   #nav {
+    margin-top: 150px;
     line-height: 100px;
     background: #c7762242;
     a {
@@ -29,6 +34,12 @@
         color: #42b983;
       }
     }
+  }
+  .component {
+    height: calc(100% - 100px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 </style>
