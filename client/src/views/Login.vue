@@ -46,7 +46,7 @@
 <script>
 import AuthenticationService from "../services/AuthenticationService.js";
 export default {
-  name: "Register",
+  name: "login",
   data() {
     return {
       email: "",
@@ -55,7 +55,24 @@ export default {
     };
   },
   methods: {
-    async login() {}
+    async login() {
+      if (!this.email || !this.password) {
+        return alert(
+          "Please fill all the fields correctly if you want to login"
+        );
+      } else {
+        try {
+          const response = await AuthenticationService.login({
+            email: this.email,
+            password: this.password
+          });
+          console.log(response.data);
+          return;
+        } catch (error) {
+          this.error = error.response.data.error;
+        }
+      }
+    }
   }
 };
 </script>

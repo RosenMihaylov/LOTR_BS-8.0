@@ -213,7 +213,7 @@
               />
             </v-col>
             <v-col cols="12">
-              <v-file-input label="Card image" accept="image/*" ></v-file-input>
+              <v-file-input label="Card image" accept="image/*"></v-file-input>
             </v-col>
           </v-row>
         </v-container>
@@ -238,8 +238,10 @@ export default {
     items: [
       { icon: "mdi-home", text: "Home", link: "/" },
       { icon: "mdi-login", text: "Login", link: "/login" },
+      { icon: "mdi-account-card-details", text: "Your Account", link: "" },
       { icon: "mdi-account-plus-outline", text: "Register", link: "/Register" },
-      { icon: "mdi-cards-playing-outline", text: "Card list", link: "" }
+      { icon: "mdi-cards-playing-outline", text: "Card list", link: "" },
+      { icon: "mdi-account-group", text: "User list", link: "" }
     ]
   })
 };
