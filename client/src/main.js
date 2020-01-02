@@ -7,6 +7,8 @@ import "vuetify/dist/vuetify.min.css";
 import vuetify from './plugins/vuetify';
 import 'roboto-fontface/css/roboto/roboto-fontface.css'
 import '@mdi/font/css/materialdesignicons.css'
+import {sync} from 'vuex-router-sync'
+
 
 Vue.config.productionTip = false;
 

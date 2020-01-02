@@ -73,10 +73,11 @@ export default {
           alert(
             `Congratulations! You have registered with email: ${this.email}`
           );
+          this.$store.dispatch("setToken", response.data.token);
+          this.$store.dispatch("setUser", response.data.token);
           this.email = "";
           this.password = "";
           this.error = "";
-
           return;
         } catch (error) {
           this.error = error.response.data.error;

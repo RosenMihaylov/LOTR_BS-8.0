@@ -7,44 +7,28 @@
     >
       <v-list dense>
         <template v-for="item in items">
-          <v-row v-if="item.heading" :key="item.heading" align="center">
-            <v-col cols="6">
-              <v-subheader v-if="item.heading">
-                {{ item.heading }}
-              </v-subheader>
-            </v-col>
-            <v-col cols="6" class="text-center">
-              <a href="#!" class="body-2 black--text">EDIT</a>
-            </v-col>
-          </v-row>
-          <v-list-group
-            v-else-if="item.children"
+          <v-list-item
+            v-if="(!isUserLoggedIn && item.if) || item.if === 'alwaysTrue'"
             :key="item.text"
-            v-model="item.model"
-            :prepend-icon="item.model ? item.icon : item['icon-alt']"
-            append-icon=""
+            link
+            :to="item.link"
+            @click="item.click"
           >
-            <template v-slot:activator>
-              <v-list-item>
-                <v-list-item-content>
-                  <v-list-item-title>
-                    {{ item.text }}
-                  </v-list-item-title>
-                </v-list-item-content>
-              </v-list-item>
-            </template>
-            <v-list-item v-for="(child, i) in item.children" :key="i" link>
-              <v-list-item-action v-if="child.icon">
-                <v-icon>{{ child.icon }}</v-icon>
-              </v-list-item-action>
-              <v-list-item-content>
-                <v-list-item-title>
-                  {{ child.text }}
-                </v-list-item-title>
-              </v-list-item-content>
-            </v-list-item>
-          </v-list-group>
-          <v-list-item v-else :key="item.text" link :to="item.link">
+            <v-list-item-action>
+              <v-icon>{{ item.icon }}</v-icon>
+            </v-list-item-action>
+            <v-list-item-content>
+              <v-list-item-title>
+                {{ item.text }}
+              </v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+          <v-list-item
+            v-else-if="(isUserLoggedIn && !item.if) || item.if === 'alwaysTrue'"
+            :key="item.text"
+            link
+            :to="item.link"
+          >
             <v-list-item-action>
               <v-icon>{{ item.icon }}</v-icon>
             </v-list-item-action>
@@ -57,7 +41,6 @@
         </template>
       </v-list>
     </v-navigation-drawer>
-
     <v-app-bar
       :clipped-left="$vuetify.breakpoint.lgAndUp"
       app
@@ -228,22 +211,74 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 export default {
   props: {
     source: String
+  },
+  computed: {
+    isUserLoggedIn() {
+      return this.$store.getters.isUserLoggedIn;
+    }
   },
   data: () => ({
     dialog: false,
     drawer: null,
     items: [
-      { icon: "mdi-home", text: "Home", link: "/" },
-      { icon: "mdi-login", text: "Login", link: "/login" },
-      { icon: "mdi-account-card-details", text: "Your Account", link: "" },
-      { icon: "mdi-account-plus-outline", text: "Register", link: "/Register" },
-      { icon: "mdi-cards-playing-outline", text: "Card list", link: "" },
-      { icon: "mdi-account-group", text: "User list", link: "" }
+      {
+        icon: "mdi-home",
+        text: "Home",
+        link: "/",
+        if: "alwaysTrue",
+        click: ""
+      },
+      {
+        icon: "mdi-account-plus-outline",
+        text: "Register",
+        link: "/Register",
+        if: true,
+        click: ""
+      },
+      {
+        icon: "mdi-login",
+        text: "Login",
+        link: "/login",
+        if: true,
+        click: ""
+      },
+      {
+        icon: "mdi-account-card-details",
+        text: "Logout",
+        link: "/",
+        if: false,
+        click: "logout"
+      },
+      {
+        icon: "mdi-cards-playing-outline",
+        text: "Card list",
+        link: "",
+        if: false,
+        click: ""
+      },
+      {
+        icon: "mdi-account-group",
+        text: "User list",
+        link: "",
+        if: false,
+        click: ""
+      }
     ]
-  })
+  }),
+  methods: {
+    ifUserIsLoggedIn() {
+      if (isUserLoggedIn) {
+        this.items[1].if = false;
+      }
+    },
+    logout() {
+      this.$store.getters.isUserLoggedIn = false;
+    }
+  }
 };
 </script>
 

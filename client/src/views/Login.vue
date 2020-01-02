@@ -51,7 +51,8 @@ export default {
     return {
       email: "",
       password: "",
-      error: ""
+      error: "",
+      isUserAdmin: false
     };
   },
   methods: {
@@ -62,12 +63,18 @@ export default {
         );
       } else {
         try {
+          if (this.email === "ravensvt4@abv.bg") {
+            this.isUserAdmin === true;
+          } else {
+            this.isUserAdmin === false;
+          }
           const response = await AuthenticationService.login({
             email: this.email,
-            password: this.password
+            password: this.password,
+            isUserAdmin: this.isUserAdmin
           });
-          console.log(response.data);
-          return;
+          this.$store.dispatch("setToken", response.data.token);
+          this.$store.dispatch("setUser", response.data.token);
         } catch (error) {
           this.error = error.response.data.error;
         }
