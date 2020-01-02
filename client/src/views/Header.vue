@@ -7,28 +7,7 @@
     >
       <v-list dense>
         <template v-for="item in items">
-          <v-list-item
-            v-if="(!isUserLoggedIn && item.if) || item.if === 'alwaysTrue'"
-            :key="item.text"
-            link
-            :to="item.link"
-            @click="item.click"
-          >
-            <v-list-item-action>
-              <v-icon>{{ item.icon }}</v-icon>
-            </v-list-item-action>
-            <v-list-item-content>
-              <v-list-item-title>
-                {{ item.text }}
-              </v-list-item-title>
-            </v-list-item-content>
-          </v-list-item>
-          <v-list-item
-            v-else-if="(isUserLoggedIn && !item.if) || item.if === 'alwaysTrue'"
-            :key="item.text"
-            link
-            :to="item.link"
-          >
+          <v-list-item :key="item.text" link :to="item.link">
             <v-list-item-action>
               <v-icon>{{ item.icon }}</v-icon>
             </v-list-item-action>
@@ -53,14 +32,8 @@
         <span class="hidden-sm-and-down">LOTR TCG BS</span>
       </v-toolbar-title>
       <v-spacer />
-      <v-btn icon>
-        <a
-          href="https://www.facebook.com/ravensvt"
-          id="facebook"
-          target="_blank"
-        >
-          <v-icon>mdi-facebook</v-icon>
-        </a>
+      <v-btn to="https://www.facebook.com/ravensvt" target="_blank">
+        <v-icon text>mdi-facebook</v-icon>
       </v-btn>
     </v-app-bar>
     <v-btn bottom color="pink" dark fab fixed right @click="dialog = !dialog">
@@ -228,52 +201,23 @@ export default {
       {
         icon: "mdi-home",
         text: "Home",
-        link: "/",
-        if: "alwaysTrue",
-        click: ""
-      },
-      {
-        icon: "mdi-account-plus-outline",
-        text: "Register",
-        link: "/Register",
-        if: true,
-        click: ""
-      },
-      {
-        icon: "mdi-login",
-        text: "Login",
-        link: "/login",
-        if: true,
-        click: ""
-      },
-      {
-        icon: "mdi-account-card-details",
-        text: "Logout",
-        link: "/",
-        if: false,
-        click: "logout"
+        link: "/"
       },
       {
         icon: "mdi-cards-playing-outline",
         text: "Card list",
-        link: "",
-        if: false,
-        click: ""
+        link: ""
       },
       {
         icon: "mdi-account-group",
         text: "User list",
-        link: "",
-        if: false,
-        click: ""
+        link: ""
       }
     ]
   }),
   methods: {
-    ifUserIsLoggedIn() {
-      if (isUserLoggedIn) {
-        this.items[1].if = false;
-      }
+    navigateTo(route) {
+      this.$router.push.route;
     },
     logout() {
       this.$store.getters.isUserLoggedIn = false;
