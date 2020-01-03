@@ -1,30 +1,68 @@
 <template>
-  <div id="cardList" class="component">
+  <div id="cardList">
     <v-content>
       <v-container class="fill-height" fluid>
-        <v-row align="center" justify="center">
+        <v-row align="flex-start" justify="center">
           <v-col cols="12">
-            <h2>CardList</h2>
+            <h2>
+              CardList
+              <v-btn>
+                <v-icon @click="toggleAllCards"
+                  >mdi-format-list-bulleted-type</v-icon
+                >
+              </v-btn>
+            </h2>
           </v-col>
           <v-col cols="12" sm="8" md="6">
-            <h3>Champions of Good/Companions</h3>
-            <Card>
-              <slot>
-                <v-card-actions>
-                  <div v-html="error" class="error" />
-                  <v-spacer />
-                  <v-btn color="cyan" @click="login">Login</v-btn>
-                </v-card-actions>
-              </slot>
-            </Card>
-            <h3>Items for Companions</h3>
-            <Card></Card>
+            <h3>
+              Champions of Good/Companions
+              <v-btn @click="toggleCompanions">
+                <v-icon>mdi-eye-outline</v-icon>
+              </v-btn>
+            </h3>
+            <ol v-if="companionList">
+              <li v-for="companion in companionCards" :key="companion.index">
+                <Card class="card"> </Card>
+              </li>
+            </ol>
+            <h3>
+              Items for Companions
+              <v-btn @click="toggleCompanionItemList">
+                <v-icon>mdi-eye-outline</v-icon>
+              </v-btn>
+            </h3>
+            <ol v-if="companionItemList">
+              <li
+                v-for="companionItem in companionItemCards"
+                :key="companionItem.index"
+              >
+                <Card> </Card>
+              </li>
+            </ol>
           </v-col>
           <v-col cols="12" sm="8" md="6">
-            <h3>Champions of Evil/Minions</h3>
-            <Card></Card>
-            <h3>Items for Minions</h3>
-            <Card></Card>
+            <h3>
+              Champions of Evil/Minions
+              <v-btn @click="toggleMinions">
+                <v-icon>mdi-eye-outline</v-icon>
+              </v-btn>
+            </h3>
+            <ol v-if="minionList">
+              <li v-for="minion in minionCards" :key="minion.index">
+                <Card> </Card>
+              </li>
+            </ol>
+            <h3>
+              Items for Minions
+              <v-btn @click="toggleMinionItemList">
+                <v-icon>mdi-eye-outline</v-icon>
+              </v-btn>
+            </h3>
+            <ol v-if="minionItemList">
+              <li v-for="minionItem in minionItemCards" :key="minionItem.index">
+                <Card> </Card>
+              </li>
+            </ol>
           </v-col>
         </v-row>
       </v-container>
@@ -43,7 +81,15 @@ export default {
       email: "",
       password: "",
       error: "",
-      isUserAdmin: false
+      isUserAdmin: false,
+      companionCards: [1],
+      minionCards: [1],
+      companionItemCards: [1],
+      minionItemCards: [2],
+      companionList: true,
+      minionList: false,
+      companionItemList: false,
+      minionItemList: false
     };
   },
   methods: {
@@ -70,6 +116,57 @@ export default {
         } catch (error) {
           this.error = error.response.data.error;
         }
+      }
+    },
+    toggleAllCards() {
+      if (
+        this.companionList === false ||
+        this.minionList === false ||
+        this.companionItemList === false ||
+        this.minionItemList === false
+      ) {
+        this.companionList = true;
+        this.minionList = true;
+        this.companionItemList = true;
+        this.minionItemList = true;
+        return;
+      } else {
+        this.companionList = false;
+        this.minionList = false;
+        this.companionItemList = false;
+        this.minionItemList = false;
+      }
+    },
+    toggleCompanions() {
+      if (this.companionList === false) {
+        this.companionList = true;
+        return;
+      } else {
+        this.companionList = false;
+      }
+    },
+    toggleCompanionItemList() {
+      if (this.companionItemList === false) {
+        this.companionItemList = true;
+        return;
+      } else {
+        this.companionItemList = false;
+      }
+    },
+    toggleMinions() {
+      if (this.minionList === false) {
+        this.minionList = true;
+        return;
+      } else {
+        this.minionList = false;
+      }
+    },
+    toggleMinionItemList() {
+      if (this.minionItemList === false) {
+        this.minionItemList = true;
+        return;
+      } else {
+        this.minionItemList = false;
       }
     }
   }
