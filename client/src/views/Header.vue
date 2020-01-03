@@ -100,7 +100,7 @@ export default {
       {
         icon: "mdi-cards-playing-outline",
         text: "Card list",
-        link: ""
+        link: "/cardList"
       },
       {
         icon: "mdi-play",

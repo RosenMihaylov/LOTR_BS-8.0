@@ -9,7 +9,16 @@ export default new Vuex.Store({
     token: null,
     user: null,
     isLogged: false,
-    activeUser: ""
+    activeUser: "",
+    phase: [
+      'Preparations',
+      'Fellowship phase',
+      'Shadow phase',
+      'Maneuver phase',
+            
+    ],
+    currentPhasePassiveSkill: "",
+
   },
   mutations: {
     setToken(state, token) {
