@@ -94,7 +94,27 @@
 import cardInfo from "../CardList.vue";
 export default {
   data: () => ({
-    cardInfo: cardInfo
+    cardInfo: {
+      name: "",
+      cardType: "",
+      cardSubType: "Man",
+      race: "Gondor",
+      title: "Ranger",
+      strenght: 8,
+      vitality: 4,
+      twilight: 4,
+      activeFellowshipPhaseSkill: "",
+      passiveFellowshipPhaseSkill: "Healer",
+      activeShadowPhaseSkill: "",
+      passiveShadowPhaseSkill: "Ranger",
+      activeManeuverPhaseSkill: "",
+      passiveManeuverPhaseSkill: "",
+      activeArcheryPhaseSkill: "Sniper",
+      passiveArcheryPhaseSkill: "",
+      activeBattlePhaseSkill: "",
+      passiveBattlePhaseSkill: "nazgulHunter",
+      img: "http://lotrtcgwiki.com/wiki/_media/cards:lotr00023.jpg"
+    }
   })
 };
 </script>

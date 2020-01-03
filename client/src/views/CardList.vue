@@ -89,28 +89,7 @@ export default {
       companionList: true,
       minionList: false,
       companionItemList: false,
-      minionItemList: false,
-      cardInfo: {
-        name: "Aragorn",
-        cardType: "Companion",
-        cardSubType: "Man",
-        race: "Gondor",
-        title: "Ranger",
-        strenght: 8,
-        vitality: 4,
-        twilight: 4,
-        activeFellowshipPhaseSkill: "",
-        passiveFellowshipPhaseSkill: "Healer",
-        activeShadowPhaseSkill: "",
-        passiveShadowPhaseSkill: "Ranger",
-        activeManeuverPhaseSkill: "",
-        passiveManeuverPhaseSkill: "",
-        activeArcheryPhaseSkill: "Sniper",
-        passiveArcheryPhaseSkill: "",
-        activeBattlePhaseSkill: "",
-        passiveBattlePhaseSkill: "nazgulHunter",
-        img: "http://lotrtcgwiki.com/wiki/_media/cards:lotr00023.jpg"
-      }
+      minionItemList: false
     };
   },
   methods: {
