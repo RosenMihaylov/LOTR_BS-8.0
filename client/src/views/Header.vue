@@ -220,28 +220,13 @@ export default {
     drawer: null,
     items: [
       {
-        icon: "mdi-home",
-        text: "Home",
-        link: "/"
-      },
-      {
-        icon: "mdi-account-plus-outline",
-        text: "Register",
-        link: "/register"
-      },
-      {
-        icon: "mdi-login",
-        text: "Login",
-        link: "/login"
-      },
-      {
         icon: "mdi-cards-playing-outline",
         text: "Card list",
         link: ""
       },
       {
-        icon: "mdi-account-group",
-        text: "User list",
+        icon: "mdi-play",
+        text: "Tutorial",
         link: ""
       }
     ]

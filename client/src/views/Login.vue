@@ -75,7 +75,7 @@ export default {
           });
           this.$store.dispatch("setToken", response.data.token);
           this.$store.dispatch("setUser", response.data.user.email);
-          console.log(response.data.user.email);
+          this.$router.push("/");
         } catch (error) {
           this.error = error.response.data.error;
         }
