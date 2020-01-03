@@ -98,6 +98,11 @@ export default {
     drawer: null,
     items: [
       {
+        icon: "mdi-home",
+        text: "Home",
+        link: "/"
+      },
+      {
         icon: "mdi-cards-playing-outline",
         text: "Card list",
         link: "/cardList"
