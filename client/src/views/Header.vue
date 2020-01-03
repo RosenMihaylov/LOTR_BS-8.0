@@ -31,8 +31,25 @@
         <v-icon>mdi-cards-playing-outline</v-icon> <v-spacer></v-spacer>
         <span class="hidden-sm-and-down">LOTR TCG BS</span>
       </v-toolbar-title>
+      <v-spacer></v-spacer>
+      <v-toolbar-title>
+        <span v-if="isLoggedIn">{{ activeUser }}</span>
+      </v-toolbar-title>
       <v-spacer />
-      <v-btn to="https://www.facebook.com/ravensvt" target="_blank">
+      <v-btn to="/register" class="smallCircle" v-if="!isLoggedIn">
+        <v-icon text>mdi-account-plus-outline</v-icon>
+      </v-btn>
+      <v-btn to="/login" class="smallCircle" v-if="!isLoggedIn">
+        <v-icon text>mdi-login</v-icon>
+      </v-btn>
+      <v-btn class="smallCircle" v-if="isLoggedIn" @click="logout" to="/">
+        <v-icon text>mdi-logout</v-icon>
+      </v-btn>
+      <v-btn
+        to="https://www.facebook.com/ravensvt"
+        target="_blank"
+        class="smallCircle"
+      >
         <v-icon text>mdi-facebook</v-icon>
       </v-btn>
     </v-app-bar>
@@ -184,14 +201,18 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
+
 export default {
   props: {
     source: String
   },
   computed: {
-    isUserLoggedIn() {
+    isLoggedIn() {
       return this.$store.getters.isUserLoggedIn;
+    },
+    activeUser() {
+      return this.$store.getters.user;
     }
   },
   data: () => ({
@@ -202,6 +223,16 @@ export default {
         icon: "mdi-home",
         text: "Home",
         link: "/"
+      },
+      {
+        icon: "mdi-account-plus-outline",
+        text: "Register",
+        link: "/register"
+      },
+      {
+        icon: "mdi-login",
+        text: "Login",
+        link: "/login"
       },
       {
         icon: "mdi-cards-playing-outline",
@@ -220,7 +251,7 @@ export default {
       this.$router.push.route;
     },
     logout() {
-      this.$store.getters.isUserLoggedIn = false;
+      this.$store.dispatch("logout");
     }
   }
 };
@@ -231,5 +262,15 @@ export default {
   color: #fff;
   border-bottom: 0;
   text-decoration: none;
+}
+.v-btn {
+  margin-left: 5px;
+  display: inline-block;
+  &.smallCircle {
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    padding: 0;
+  }
 }
 </style>

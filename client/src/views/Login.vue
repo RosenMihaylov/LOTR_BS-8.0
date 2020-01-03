@@ -74,7 +74,8 @@ export default {
             isUserAdmin: this.isUserAdmin
           });
           this.$store.dispatch("setToken", response.data.token);
-          this.$store.dispatch("setUser", response.data.token);
+          this.$store.dispatch("setUser", response.data.user.email);
+          console.log(response.data.user.email);
         } catch (error) {
           this.error = error.response.data.error;
         }
