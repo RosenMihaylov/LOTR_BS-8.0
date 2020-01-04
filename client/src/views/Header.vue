@@ -55,13 +55,11 @@
       >
         <v-icon text>mdi-logout</v-icon>
       </v-btn>
-      <v-btn
-        to="https://www.facebook.com/ravensvt"
-        target="_blank"
-        class="smallCircle"
-      >
-        <v-icon text>mdi-facebook</v-icon>
-      </v-btn>
+      <a href="https://www.facebook.com/ravensvt" target="_blank" id="facebook">
+        <v-btn link class="smallCircle">
+          <v-icon text>mdi-facebook</v-icon>
+        </v-btn>
+      </a>
     </v-app-bar>
     <v-btn
       bottom
