@@ -11,12 +11,12 @@ module.exports = (sequelize, DataTypes) => {
 
   ActiveManeuverPhaseSkill.associate = models => {
     ActiveManeuverPhaseSkill.hasMany(models.Card, {
-      through: "cards",
+      through: "Cards",
       foreignKey: "cardName",
       targetKey: "name"
     });
     ActiveManeuverPhaseSkill.belongsTo(models.Phase, {
-      through: "phase",
+      through: "Phases",
       foreignKey: "phaseName",
       targetKey: "name"
     });

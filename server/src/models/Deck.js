@@ -1,23 +1,23 @@
 module.exports = (sequelize, DataTypes) => {
-  const Race = sequelize.define("Race", {
+  const Deck = sequelize.define("Deck", {
     name: {
       type: DataTypes.STRING,
       unique: true
     }
   });
 
-  Race.associate = models => {
-    Race.hasMany(models.Card, {
+  Deck.associate = models => {
+    Deck.hasMany(models.Card, {
       through: "Cards",
       foreignKey: "cardName",
       targetKey: "name"
     });
-    Race.hasMany(models.SubRace, {
-      through: "SubRaces",
-      foreignKey: "subRaceName",
+    Deck.belongsTo(models.User, {
+      through: "Users",
+      foreignKey: "userName",
       targetKey: "name"
     });
   };
 
-  return Race;
+  return Deck;
 };

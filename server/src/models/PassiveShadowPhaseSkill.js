@@ -8,12 +8,12 @@ module.exports = (sequelize, DataTypes) => {
 
   PassiveShadowPhaseSkill.associate = models => {
     PassiveShadowPhaseSkill.hasMany(models.Card, {
-      through: "cards",
+      through: "Cards",
       foreignKey: "cardName",
       targetKey: "name"
     });
     PassiveShadowPhaseSkill.belongsTo(models.Phase, {
-      through: "phase",
+      through: "Phases",
       foreignKey: "phaseName",
       targetKey: "name"
     });

@@ -8,12 +8,12 @@ module.exports = (sequelize, DataTypes) => {
 
   SubType.associate = models => {
     SubType.belongsTo(models.Type, {
-      through: "type",
+      through: "Types",
       foreignKey: "typeName",
       targetKey: "name"
     });
     SubType.hasMany(models.Card, {
-      through: "cards",
+      through: "Cards",
       foreignKey: "cardName",
       targetKey: "name"
     });

@@ -8,52 +8,52 @@ module.exports = (sequelize, DataTypes) => {
 
   Phase.associate = models => {
     Phase.hasMany(models.ActiveFellowshipPhaseSkill, {
-      through: "activeFellowshipPhaseSkills",
+      through: "ActiveFellowshipPhaseSkills",
       foreignKey: "activeFellowshipPhaseSkillName",
       targetKey: "name"
     });
     Phase.hasMany(models.PassiveFellowshipPhaseSkill, {
-      through: "passiveFellowshipPhaseSkills",
+      through: "PassiveFellowshipPhaseSkills",
       foreignKey: "passiveFellowshipPhaseSkillName",
       targetKey: "name"
     });
     Phase.hasMany(models.ActiveShadowPhaseSkill, {
-      through: "activeShadowPhaseSkills",
+      through: "ActiveShadowPhaseSkills",
       foreignKey: "activeShadowPhaseSkillName",
       targetKey: "name"
     });
     Phase.hasMany(models.PassiveShadowPhaseSkill, {
-      through: "passiveShadowPhaseSkills",
+      through: "PassiveShadowPhaseSkills",
       foreignKey: "passiveShadowPhaseSkillName",
       targetKey: "name"
     });
     Phase.hasMany(models.ActiveManeuverPhaseSkill, {
-      through: "activeManeuverPhaseSkills",
+      through: "ActiveManeuverPhaseSkills",
       foreignKey: "activeManeuverPhaseSkillName",
       targetKey: "name"
     });
     Phase.hasMany(models.PassiveManeuverPhaseSkill, {
-      through: "passiveManeuverPhaseSkills",
+      through: "PassiveManeuverPhaseSkills",
       foreignKey: "passiveManeuverPhaseSkillName",
       targetKey: "name"
     });
     Phase.hasMany(models.ActiveArcheryPhaseSkill, {
-      through: "activeArcheryPhaseSkills",
+      through: "ActiveArcheryPhaseSkills",
       foreignKey: "activeArcheryPhaseSkillName",
       targetKey: "name"
     });
     Phase.hasMany(models.PassiveArcheryPhaseSkill, {
-      through: "passiveArcheryPhaseSkills",
+      through: "PassiveArcheryPhaseSkills",
       foreignKey: "passiveArcheryPhaseSkillName",
       targetKey: "name"
     });
     Phase.hasMany(models.ActiveBattlePhaseSkill, {
-      through: "activeBattlePhaseSkills",
+      through: "ActiveBattlePhaseSkills",
       foreignKey: "activeBattlePhaseSkillName",
       targetKey: "name"
     });
     Phase.hasMany(models.PassiveBattlePhaseSkill, {
-      through: "passiveBattlePhaseSkills",
+      through: "PassiveBattlePhaseSkills",
       foreignKey: "passiveBattlePhaseSkillName",
       targetKey: "name"
     });

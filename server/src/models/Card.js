@@ -19,72 +19,72 @@ module.exports = (sequelize, DataTypes) => {
 
   Card.associate = models => {
     Card.belongsTo(models.Type, {
-      through: "type",
+      through: "Types",
       foreignKey: "typeName",
       targetKey: "name"
     });
     Card.belongsTo(models.SubType, {
-      through: "subType",
+      through: "SubTypes",
       foreignKey: "subTypeName",
       targetKey: "name"
     });
     Card.belongsTo(models.Race, {
-      through: "race",
+      through: "Races",
       foreignKey: "raceName",
       targetKey: "name"
     });
     Card.belongsTo(models.SubRace, {
-      through: "subRace",
+      through: "SubRaces",
       foreignKey: "subRaceName",
       targetKey: "name"
     });
     Card.belongsTo(models.ActiveFellowhipPhaseSkill, {
-      through: "activeFellowhipPhaseSkill",
+      through: "ActiveFellowhipPhaseSkills",
       foreignKey: "activeFellowhipPhaseSkillname",
       targetKey: "name"
     });
     Card.belongsTo(models.PasiveFellowhipPhaseSkill, {
-      through: "pasiveFellowhipPhaseSkill",
+      through: "PasiveFellowhipPhaseSkills",
       foreignKey: "pasiveFellowhipPhaseSkillname",
       targetKey: "name"
     });
     Card.belongsTo(models.ActiveShadowPhaseSkill, {
-      through: "activeShadowPhaseSkill",
+      through: "ActiveShadowPhaseSkills",
       foreignKey: "activeShadowPhaseSkillname",
       targetKey: "name"
     });
     Card.belongsTo(models.PasiveShadowPhaseSkill, {
-      through: "pasiveShadowPhaseSkill",
+      through: "PasiveShadowPhaseSkills",
       foreignKey: "pasiveShadowPhaseSkillname",
       targetKey: "name"
     });
     Card.belongsTo(models.ActiveManeuverPhaseSkill, {
-      through: "activeManeuverPhaseSkill",
+      through: "ActiveManeuverPhaseSkills",
       foreignKey: "activeManeuverPhaseSkillname",
       targetKey: "name"
     });
     Card.belongsTo(models.PasiveManeuverPhaseSkill, {
-      through: "pasiveManeuverPhaseSkill",
+      through: "PasiveManeuverPhaseSkills",
       foreignKey: "pasiveManeuverPhaseSkillname",
       targetKey: "name"
     });
     Card.belongsTo(models.ActiveArcheryPhaseSkill, {
-      through: "activeArcheryPhaseSkill",
+      through: "ActiveArcheryPhaseSkills",
       foreignKey: "activeArcheryPhaseSkillname",
       targetKey: "name"
     });
     Card.belongsTo(models.PasiveArcheryPhaseSkill, {
-      through: "pasiveArcheryPhaseSkill",
+      through: "PasiveArcheryPhaseSkills",
       foreignKey: "pasiveArcheryPhaseSkillname",
       targetKey: "name"
     });
     Card.belongsTo(models.ActiveBattlePhaseSkill, {
-      through: "activeBattlePhaseSkill",
+      through: "ActiveBattlePhaseSkills",
       foreignKey: "activeBattlePhaseSkillname",
       targetKey: "name"
     });
     Card.belongsTo(models.PasiveBattlePhaseSkill, {
-      through: "pasiveBattlePhaseSkill",
+      through: "PasiveBattlePhaseSkills",
       foreignKey: "pasiveBattlePhaseSkillname",
       targetKey: "name"
     });

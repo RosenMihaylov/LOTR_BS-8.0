@@ -12,6 +12,11 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: "cardName",
       targetKey: "name"
     });
+    SubRace.belongsTo(models.Race, {
+      through: "Races",
+      foreignKey: "raceName",
+      targetKey: "name"
+    });
   };
 
   return SubRace;

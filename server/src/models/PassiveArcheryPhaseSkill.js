@@ -11,12 +11,12 @@ module.exports = (sequelize, DataTypes) => {
 
   PassiveArcheryPhaseSkill.associate = models => {
     PassiveArcheryPhaseSkill.hasMany(models.Card, {
-      through: "cards",
+      through: "Cards",
       foreignKey: "cardName",
       targetKey: "name"
     });
     PassiveArcheryPhaseSkill.belongsTo(models.Phase, {
-      through: "phase",
+      through: "Phases",
       foreignKey: "phaseName",
       targetKey: "name"
     });
