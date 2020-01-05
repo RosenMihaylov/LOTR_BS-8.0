@@ -8,14 +8,11 @@ module.exports = (sequelize, DataTypes) => {
 
   Deck.associate = models => {
     Deck.hasMany(models.Card, {
-      through: "Cards",
-      foreignKey: "cardName",
-      targetKey: "name"
+      through: "card",
+      foreignKey: "cardId"
     });
-    Deck.belongsTo(models.User, {
-      through: "Users",
-      foreignKey: "userName",
-      targetKey: "name"
+    Deck.belongsToOne(models.User, {
+      foreignKey: "userId"
     });
   };
 

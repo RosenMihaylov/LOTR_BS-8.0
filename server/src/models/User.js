@@ -9,9 +9,8 @@ module.exports = (sequelize, DataTypes) => {
 
   User.associate = models => {
     User.hasMany(models.Deck, {
-      through: "Decks",
-      foreignKey: "deckName",
-      targetKey: "name"
+      through: Deck,
+      foreignKey: "deckid"
     });
   };
 
