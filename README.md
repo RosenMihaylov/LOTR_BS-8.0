@@ -1,13 +1,19 @@
 # LOTR_BS-8.0
 
-##Client
+## Client
 
-cd client
-npm install
-npm run serve
+### cd client
 
-###server
+### npm install
 
-cd server
-npm install
-npm start
+### npm run serve
+
+<hr>
+
+## Server
+
+### cd server
+
+### npm install
+
+### npm start
