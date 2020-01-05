@@ -23,7 +23,7 @@ module.exports = (sequelize, DataTypes) => {
     // associations can be defined here
     Card.belongsTo(models.Type, {
       foreignKey: "typeId",
-      as: "card of that type",
+      as: "type of the card",
       onDelete: "CASCADE"
     });
   };

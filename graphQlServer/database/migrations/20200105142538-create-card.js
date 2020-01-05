@@ -49,7 +49,6 @@ module.exports = {
         type: Sequelize.STRING
       },
       passiveSkillPhaseId: {
-        allowNull: false,
         type: Sequelize.INTEGER
       },
       createdAt: {
