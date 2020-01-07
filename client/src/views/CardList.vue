@@ -15,7 +15,7 @@
           </v-col>
           <v-col cols="12" sm="8" md="6">
             <h3>
-              Champions of Good/Companions
+              Champions of Good / Companions
               <v-btn @click="toggleCompanions">
                 <v-icon>mdi-eye-outline</v-icon>
               </v-btn>
@@ -42,7 +42,7 @@
           </v-col>
           <v-col cols="12" sm="8" md="6">
             <h3>
-              Champions of Evil/Minions
+              Champions of Evil / Minions
               <v-btn @click="toggleMinions">
                 <v-icon>mdi-eye-outline</v-icon>
               </v-btn>
