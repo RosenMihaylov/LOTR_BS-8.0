@@ -10,5 +10,18 @@ module.exports = {
         error: `${err}`
       });
     }
+  },
+  async deleteCard(req, res) {
+    try {
+      return await Card.destroy({ where: { id: req.body.id } })
+        .then(() => {
+          res.send(`succesfuly deleted card with id ${req.body.id}`);
+        })
+        .then(() => res.end());
+    } catch (err) {
+      res.status(400).send({
+        error: `${err}`
+      });
+    }
   }
 };
