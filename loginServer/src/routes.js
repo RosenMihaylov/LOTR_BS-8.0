@@ -13,4 +13,5 @@ module.exports = app => {
   app.post("/login", AuthenticationControler.login);
   app.post("/addCard", cardControler.addCard);
   app.delete("/deleteCard", cardControler.deleteCard);
+  app.put("/updateCard", cardControler.updateCard);
 };

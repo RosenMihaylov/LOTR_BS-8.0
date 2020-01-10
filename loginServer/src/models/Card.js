@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-  const Card = sequelize.define("card", {
+  const Card = sequelize.define("Card", {
     cardSet: {
       type: DataTypes.STRING,
       nonNull: true
