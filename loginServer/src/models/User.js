@@ -7,12 +7,5 @@ module.exports = (sequelize, DataTypes) => {
     password: DataTypes.STRING
   });
 
-  User.associate = models => {
-    User.hasMany(models.Deck, {
-      through: Deck,
-      foreignKey: "deckid"
-    });
-  };
-
   return User;
 };

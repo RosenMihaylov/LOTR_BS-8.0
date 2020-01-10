@@ -16,6 +16,7 @@ module.exports = {
       const user = await User.create(req.body);
       const token = jwtSignUser(user.toJSON());
       res.send({ user: user.toJSON(), token });
+      res.send(console.log(user));
       return;
     } catch (err) {
       res.status(400).send({
